@@ -1,0 +1,15 @@
+data/
+backups/
+*.sqlite
+*.sqlite3
+*.db
+*.db-*
+.env
+.env.*
+!.env.example
+.npm-cache/
+node_modules/
+.wrangler/
+.dev.vars
+*.tmp
+.DS_Store
