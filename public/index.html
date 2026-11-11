@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f6f4"><title>Despacho · Control contable</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="login-screen" id="loginScreen" hidden>
+  <form class="login-card" id="loginForm"><span class="login-brand">LC</span><div class="eyebrow">DESPACHO CONTABLE</div><h1>Bienvenido</h1><p>Inicia sesión para abrir el panel de gestión.</p><div class="field"><label>Usuario</label><input name="username" autocomplete="username" required></div><div class="field"><label>Contraseña</label><input name="password" type="password" autocomplete="current-password" required></div><p class="login-error" id="loginError" role="alert"></p><button class="btn btn-primary login-submit" type="submit">Iniciar sesión</button><small>Acceso local · Sesión protegida</small></form>
+</div>
+<div class="password-screen" id="passwordScreen" hidden>
+  <form class="login-card" id="passwordForm"><span class="login-brand">LC</span><div class="eyebrow">SEGURIDAD DE CUENTA</div><h1>Actualiza tu contraseña</h1><p>Para continuar, reemplaza la contraseña temporal por una de al menos 12 caracteres.</p><div class="field"><label>Contraseña temporal actual</label><input name="currentPassword" type="password" autocomplete="current-password" required></div><div class="field"><label>Nueva contraseña</label><input name="newPassword" type="password" minlength="12" autocomplete="new-password" required></div><p class="login-error" id="passwordError" role="alert"></p><button class="btn btn-primary login-submit" type="submit">Guardar y continuar</button></form>
+</div>
+<div class="app-shell" id="appShell" hidden>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#dashboard" aria-label="Despacho, inicio">
+      <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 29V17.5L20 9l12 8.5V29H8Z"/><path d="M15 29v-9h10v9M5 31h30"/><path d="M13 15l7-5 7 5"/></svg></span>
+      <span class="brand-copy"><strong>ledesma</strong><small>despacho contable</small></span>
+    </a>
+    <div class="workspace-label">ESPACIO DE TRABAJO</div>
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="nav-link active" href="#dashboard" data-view="dashboard"><span class="nav-icon">◫</span><span>Resumen</span></a>
+      <div class="nav-group-label">GESTIÓN</div>
+      <a class="nav-link" href="#clients" data-view="clients"><span class="nav-icon">♙</span><span>Clientes</span><span class="nav-count" id="clientCount">0</span></a>
+      <a class="nav-link" href="#invoices" data-view="invoices"><span class="nav-icon">▤</span><span>Facturación</span></a>
+      <a class="nav-link" href="#transactions" data-view="transactions"><span class="nav-icon">⇄</span><span>Ingresos y egresos</span></a>
+      <a class="nav-link" href="#obligations" data-view="obligations"><span class="nav-icon">◷</span><span>Obligaciones</span><span class="nav-dot" id="obligationDot"></span></a>
+      <a class="nav-link" href="#users" data-view="users" id="usersNav" hidden><span class="nav-icon">♧</span><span>Usuarios y roles</span></a>
+      <div class="nav-group-label">CONSULTA</div>
+      <a class="nav-link" href="#reports" data-view="reports"><span class="nav-icon">▥</span><span>Reportes</span></a>
+      <a class="nav-link" href="#activity" data-view="activity"><span class="nav-icon">◷</span><span>Actividad</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="help-card"><span class="help-icon">✦</span><strong>¿Necesitas ayuda?</strong><p>Consulta la guía de uso para conocer los módulos.</p><button class="text-button" id="helpBtn">Ver guía <span>↗</span></button></div>
+      <div class="user-card"><span class="avatar" id="sidebarUserAvatar">EL</span><span class="user-meta"><strong id="sidebarUserName">Administración</strong><small id="sidebarUserRole">Administración</small></span><button class="more-button" id="userMenu" aria-label="Cerrar sesión">↗</button></div>
+    </div>
+  </aside>
+  <button class="sidebar-backdrop" id="sidebarBackdrop" aria-label="Cerrar menú" hidden></button>
+  <main class="main-content">
+    <header class="topbar"><button class="icon-button mobile-menu" id="menuBtn" aria-label="Abrir menú">☰</button><div class="breadcrumbs"><span>Despacho</span><span class="crumb-sep">/</span><strong id="crumbCurrent">Resumen</strong></div><div class="top-actions"><span class="date-pill" id="todayPill"></span><button class="icon-button notification-button" id="notifyBtn" aria-label="Notificaciones">♧<i id="notificationMark"></i></button><span class="top-avatar">EL</span></div></header>
+    <section class="page" id="page"></section>
+    <footer class="footer"><span>Panel de gestión <i>·</i> Datos de demostración para uso local</span><span>Estancia III <i>·</i> 2026</span></footer>
+  </main>
+</div>
+<div class="toast-region" id="toasts" aria-live="polite"></div>
+<div class="modal-backdrop" id="modalBackdrop" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><header class="modal-head"><div><span class="eyebrow" id="modalEyebrow">REGISTRO</span><h2 id="modalTitle">Nuevo registro</h2></div><button class="icon-button" id="modalClose" aria-label="Cerrar">×</button></header><div id="modalBody"></div></section></div>
+<script src="/app.js"></script>
+</body>
+</html>
