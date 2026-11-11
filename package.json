@@ -1,0 +1,15 @@
+{
+  "name": "plataforma-despacho-contable",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Interfaz local para gestión contable y administrativa de un despacho",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "sql.js": "^1.15.2"
+  }
+}
